@@ -1,0 +1,11 @@
+		#### Made my user35p74a ####
+
+Here is a command helper to mahe ssh login easier.
+If you have any issues or advices, go on https://github.com/user35p74a/. 
+
+		############################
+
+To print the help page, use "server -h".
+
+The script isn't finished so here is ideas to implement. 
+	- Make completion to choose profiles

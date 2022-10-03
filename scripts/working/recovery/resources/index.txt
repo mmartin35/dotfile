@@ -1,0 +1,14 @@
+		#### Made my user35p74a ####
+
+This script make full computer recovery.
+If you have any issues or advices, go on https://github.com/user35p74a/. 
+
+		############################
+
+To get the help page, use "reco -h".
+
+The script isn't finished so here is ideas to implement:
+	-
+	-
+	-
+

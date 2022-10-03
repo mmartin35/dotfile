@@ -1,0 +1,9 @@
+Coded by user35p74a. 
+This code is used to create header easily upon different languages. 
+It has to be upgraded so if you see something that isn't perfect, hang me. 
+usage: 
+	header [option] [filename] | create header with the proper language
+
+options: 
+	-h | display help page
+	-l | list supported languages

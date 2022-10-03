@@ -1,0 +1,14 @@
+		#### Made my user35p74a ####
+
+			<Script usage>
+If you have any issues or advices, go on https://github.com/user35p74a/. 
+
+		############################
+
+To get the help page, use [command] -h".
+
+The script isn't finished so here is ideas to implement:
+	-
+	-
+	-
+

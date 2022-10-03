@@ -1,0 +1,11 @@
+usage: 
+	[command] [option] [user]
+
+options:
+	-----------------------------------------------------
+	-h	| display help page 
+	-----------------------------------------------------
+	-l	| list all working languages
+        -c	| create a project with basic attributes
+        -s	| create a project with a specified language
+	-----------------------------------------------------
