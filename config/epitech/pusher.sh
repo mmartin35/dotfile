@@ -5,5 +5,5 @@ git pull
 git commit -m $commit
 git push
 echo "=============================="
-echo "git pushed successfully"
+echo "--git folder has been pushed--"
 echo "=============================="
