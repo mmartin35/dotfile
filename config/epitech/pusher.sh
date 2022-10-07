@@ -4,4 +4,6 @@ git add .
 git pull
 git commit -m $commit
 git push
+echo "=============================="
 echo "git pushed successfully"
+echo "=============================="
