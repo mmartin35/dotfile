@@ -11,9 +11,3 @@ int [script]()
 {
 
 }
-
-int main(void)
-{
-    [script]();
-    return 0;
-}
