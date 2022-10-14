@@ -25,3 +25,4 @@ else
 	echo "Repo not cloned"
 fi
 clear
+echo "Marvin est notre ami, économisons le !"
