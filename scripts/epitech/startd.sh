@@ -10,6 +10,7 @@ else
         firefox https://intra.epitech.eu/module/2022/B-CPE-100/NCY-1-1/#!/all/TP-$day-C-Pool-Day-$day &
         firefox https://outlook.office365.com/mail/ &
 fi
+clear
 echo "Do you want to clone the repo ? (y/n)"
 read ans
 if [ $ans = "y" ];then
@@ -23,3 +24,4 @@ if [ $ans = "y" ];then
 else
 	echo "Repo not cloned"
 fi
+clear
