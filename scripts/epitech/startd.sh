@@ -9,6 +9,7 @@ else
 	firefox https://github.com/EpitechPromo2027/B-CPE-100-NCY-1-1-cpoolday$day-matthieu1.martin &
         firefox https://intra.epitech.eu/module/2022/B-CPE-100/NCY-1-1/#!/all/TP-$day-C-Pool-Day-$day &
         firefox https://outlook.office365.com/mail/ &
+fi
 echo "Do you want to clone the repo ? (y/n)"
 read ans
 if [ $ans = "y" ];then
@@ -18,6 +19,7 @@ if [ $ans = "y" ];then
 	else
 		git clone git@github.com:EpitechPromo2027/B-CPE-100-NCY-1-1-cpoolday$day-matthieu1.martin.git
                 mv B-CPE* ~/GIT/epitech/day$day
+	fi
 else
 	echo "Repo not cloned"
 fi
