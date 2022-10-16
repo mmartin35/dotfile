@@ -22,13 +22,17 @@ alias rm='rm -r'
 alias cp='cp -r'
 
 # scripts :
-alias server='~/Code/Dotfile/Linux/scripts/in_progress/ssh_login_helper/script.sh'
-alias pb='~/Code/Dotfile/Linux/scripts/in_progress/project_builder/script.sh'
-alias reco='~/Code/Dotfile/Linux/scripts/in_progress/recovery/script.sh'
+alias server='~/Code/Dotfile/scripts/on_it/ssh_login_helper/script.sh'
+alias pb='~/Code/Dotfile/scripts/on_it/project_builder/script.sh'
+alias reco='~/Code/Dotfile/scripts/on_it/recovery/script.sh'
+alias build='~/GIT/dotfile/scripts/epitech/builder.sh'
+alias push='~/GIT/dotfile/scripts/epitech/pusher.sh'
+alias coding-style='~/GIT/dotfile/scripts/epitech/coding-style-checker/coding-style.sh'
+alias startd='~/GIT/dotfile/scripts/epitech/startd.sh'
 
 # cmd shortcut :
-alias lan='cd ~/Code/Languages'
-alias scr='cd ~/Code/Dotfile/Linux/scripts'
+alias tek='cd ~/GIT/epitech'
+alias scr='cd ~/GIT/dotfile/scripts'
 #bindkey [key] [command]
 
 # Completion : 
@@ -125,7 +129,7 @@ setopt PROMPT_SUBST
 (( $+commands[nawk] ))  &&  : "${ZSH_GIT_PROMPT_AWK_CMD:=nawk}"
                             : "${ZSH_GIT_PROMPT_AWK_CMD:=awk}"
 
-function _zsh_gi_prompt_git_status() {
+function _zsh_git_prompt_git_status() {
     emulate -L zsh
     {
         [[ -n "$ZSH_GIT_PROMPT_SHOW_STASH" ]] && (
