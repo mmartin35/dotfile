@@ -1,37 +1,36 @@
 #!/bin/bash
 today=$(date +%d/%m/%Y)
-div=/*******************************************
-div2=*******************************************/
+div=/*
+div2=*/
 
 /usr/bin/clear
 
 _select_title(){
 
-    # Get the user input.
+    # User input.
     printf "name: " ; read -r title
 
-    # Remove the spaces from the title if necessary.
+    # Remove spaces.
     title=${title// /_}
 
-    # Convert uppercase to lowercase.
+    # Convert upper to lower.
     title=${title,,}
 
-    # Add .c to the end of the title if it is not there already.
+    # Add .c to the end.
     [ "${title: -3}" != '.c' ] && title=${title}.c
 
-    # Check to see if the file exists already.
+    # Check if file exists.
     if [ -e $title ] ; then 
         printf "\n%s\n%s\n\n" "The script \"$title\" already exists." \
-        "Please put another name."
+        "Choose another name."
         _select_title
     fi
-
 }
 
 _select_title
 
-# Format the output and write it to a file.
-printf "%-16s\n\
+# Format the output.
+printf "%-2s\n\
 %-16s%-8s\n\
 %-16s%-8s\n\
 %-16s%-8s\n\
