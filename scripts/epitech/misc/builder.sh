@@ -1,5 +1,6 @@
 #!/bin/bash
 today=$(date +%d/%m/%Y)
+time=$(date +"%T")
 div=/*
 div2=*/
 
@@ -32,13 +33,14 @@ _select_title
 # Format the output.
 printf "%-2s\n\
 %-0s%-0s\n\
-%-16s%-0s\n\
-%-16s%-8s\n\
-%-16s%-8s\n\
-%-16s%-8s\n\
-%s\n\n\n" \
-"${div}" "** EPITECH PROJECT, 2022" '' '** Title' ":$title" '** Description' \
-":PoolDay, Promo 2027" '** Author' ":matthieu1.martin@epitech.eu" '** Date' ":$today" \
+%-0s%-0s\n\
+%-19s%-0s\n\
+%-19s%-0s\n\
+%-19s%-0s\n\
+%-19s%-0s\n\
+%s\n" \
+"${div}" "** EPITECH PROJECT, 2022" '' '** Title' ": $title" '** File description:' \
+"" "** <------------------------------------------->" '' '** Made by' ": matthieu1.martin@epitech.eu" '** Creation date' ": $today at $time" \
 "${div2}" > $title
 
 /usr/bin/clear
