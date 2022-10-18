@@ -31,13 +31,14 @@ _select_title
 
 # Format the output.
 printf "%-2s\n\
-%-16s%-8s\n\
+%-0s%-0s\n\
+%-16s%-0s\n\
 %-16s%-8s\n\
 %-16s%-8s\n\
 %-16s%-8s\n\
 %s\n\n\n" \
-"${div}" '**title' ":$title" '**description' \
-":EPITECH, promo 2022" '**author' ":matthieu1.martin@epitech.eu" '**date' ":$today" \
+"${div}" "** EPITECH PROJECT, 2022" '' '** Title' ":$title" '** Description' \
+":PoolDay, Promo 2027" '** Author' ":matthieu1.martin@epitech.eu" '** Date' ":$today" \
 "${div2}" > $title
 
 /usr/bin/clear
