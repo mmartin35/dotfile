@@ -22,11 +22,11 @@ fi
 # RETURN #
 if [ $1 = "-f" ];then ## fast login
 	clear
-        ssh user35p74a@user35p74a.ddns.net -p 4044
+        ssh user35p74a@31.37.54.74 -p 4044
 elif [$1 = "-c" ] && [ -z $2 ];then ## connect to server
 	clear
         echo "server: trying to connect to $2..." 
-        ssh $2@user35p74a.ddns.net -p 4044
+        ssh $2@31.37.54.74 -p 4044
 else 
 	echo "status: missing value"
 	echo "check server -h to get help"
