@@ -13,26 +13,22 @@ compinit
 # aliases + keybinds :
 setopt auto_cd
 alias v='nvim'
-alias github='firefox --new-window github.com/user35p74a &'
-alias netflix='firefox --new-window netflix.com &'
 alias c='clear'
-alias stop='shutdown 0'
 alias e='exit'
 alias rm='rm -r'
 alias cp='cp -r'
 
 # scripts :
-alias server='~/Code/Dotfile/scripts/on_it/ssh_login_helper/script.sh'
-alias pb='~/Code/Dotfile/scripts/on_it/project_builder/script.sh'
-alias reco='~/Code/Dotfile/scripts/on_it/recovery/script.sh'
-alias build='~/GIT/dotfile/scripts/epitech/builder.sh'
-alias push='~/GIT/dotfile/scripts/epitech/pusher.sh'
+alias build='~/GIT/dotfile/scripts/epitech/misc/builder.sh'
+alias push='~/GIT/dotfile/scripts/epitech/network/pusher.sh'
 alias coding-style='~/GIT/dotfile/scripts/epitech/coding-style-checker/coding-style.sh'
-alias startd='~/GIT/dotfile/scripts/epitech/startd.sh'
+alias startd='~/GIT/dotfile/scripts/epitech/misc/startd.sh'
+alias import='~/GIT/dotfile/scripts/epitech/misc/importlib.sh'
 
 # cmd shortcut :
 alias tek='cd ~/GIT/epitech'
 alias scr='cd ~/GIT/dotfile/scripts'
+alias lib='cd ~/GIT/epitech/lib_epitech'
 #bindkey [key] [command]
 
 # Completion : 
