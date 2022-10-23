@@ -1,4 +1,5 @@
 #!/bin/bash
+server="user35p74a@31.37.54.74"
 
 ##	Initialysing folders	##
 echo "status: initialysing folders..."
@@ -15,7 +16,7 @@ echo "<----- 1st step done ----->"
 
 ##	Recovering from server	##
 echo "status: transfering backups..."
-scp -r -P 4044 user35p74a@31.37.54.74:/home/pi/backup/like_new/ ~/recovery/
+scp -r -P 4044 $server:/home/pi/backup/wayback/ ~/recovery/
 echo "<----- 2rd step done ----->"
 
 ##	Setting up github	##
@@ -23,7 +24,7 @@ echo "status: generating keygen for github..."
 ssh-keygen -t rsa -N '' -f ~/.ssh/id_rsa
 clear
 cat "~/.ssh.id_rsa.pub"
-echo"WARNING: press a key after you registered your ssh key."
+echo "WARNING: press a key after you registered your ssh key."
 read timeout
 git config --global user.email matthieu1.martin@epitech.eu
 echo "status: cloning dotfile..."
