@@ -1,9 +1,0 @@
-usage: 
-	reco [option]
-
-options:
-	-------------------------------------
-	-h	| display help page 
-	-------------------------------------
-	-set	| setting up recovery mode
-	-------------------------------------

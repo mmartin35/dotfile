@@ -32,14 +32,14 @@ _select_title
 
 # Format the output.
 printf "%-2s\n\
-%-0s%-0s\n\
-%-0s%-0s\n\
+%-19s%-0s\n\
+%-19s%-0s\n\
 %-19s%-0s\n\
 %-19s%-0s\n\
 %-19s%-0s\n\
 %-19s%-0s\n\
 %s\n" \
-"${div}" "** github: mmartin35" '' '** Title' ": $title" '** File description:' \
+"${div}" '** Language' ': C' '** Title' ": $title" '** File description:' \
 "" "** <------------------------------------------->" '' '** Made by' ": matthieu1.martin@epitech.eu" '** Creation date' ": $today at $time" \
 "${div2}" > $title
 
