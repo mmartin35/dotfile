@@ -1,9 +1,9 @@
 #!/bin/bash
-server="user35p74a@31.37.54.74"
 media="/media/user/saves"
-reter="echo status: aborted"
+server="user35p74a@31.37.54.74"
 serverpath="~/backup/wayback"
 port="-P 4044"
+reter="echo status: aborted"
 
 #	Saving config state	#
 clear
