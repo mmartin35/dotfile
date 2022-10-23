@@ -1,5 +1,7 @@
 #!/bin/bash
 server="user35p74a@31.37.54.74"
+media="/media/user/saves"
+reter="echo 'status: aborted'"
 
 #	Saving config state	#
 clear
@@ -14,16 +16,14 @@ if [ $answer = 'y' ];then
 	scp -r -P 4044 ~/Pictures/* $server:/home/pi/backup/wayback/Pictures        
 	scp -r -P 4044 ~/Code/* $server:/home/pi/backup/wayback/Code
 else    
-        echo "status: server push aborted"
+	$reter
 fi
 
 #	Copy to usb key		#
-echo "Do you want to copy ressources into usb save device ?"
-echo "Notice that you have to plug the right key. Press 'y' if you agree."
+echo "Do you want to copy ressources into pre-configured usb device ? (y/abort)"
 read answer
 if [ $answer = 'y' ];then
-	cp ~/GIT/dotfile/config/wayback/ressources/* /media/user/saves/ressources/
+	cp ~/GIT/dotfile/config/wayback/ressources/* $media/ressources/
 else
-	echo "status: copy aborted"
+	$reter
 fi
-
