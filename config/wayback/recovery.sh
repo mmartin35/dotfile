@@ -3,7 +3,7 @@ server="user35p74a@31.37.54.74"
 
 ##	Initialysing folders	##
 echo "status: initialysing folders..."
-mkdir -p ~/GIT/epitech ~/recovery ~/Code
+mkdir -p ~/GIT/epitech ~/recovery ~/Code ~/Documents
 echo "<----- folder creation done ----->"
 
 ##	Downloading packages	##
