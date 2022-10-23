@@ -1,5 +1,8 @@
 #!/bin/bash
+media="/media/user/saves"
 server="user35p74a@31.37.54.74"
+serverpath="~/backup/wayback"
+port="-P 4044"
 
 ##	Initialysing folders	##
 echo "status: initialysing folders..."
@@ -16,7 +19,7 @@ echo "<----- 1st step done ----->"
 
 ##	Recovering from server	##
 echo "status: transfering backups..."
-scp -r -P 4044 $server:/home/pi/backup/wayback/ ~/recovery/
+scp -r $port $server:$serverpath/ ~/recovery/
 echo "<----- 2rd step done ----->"
 
 ##	Setting up github	##
