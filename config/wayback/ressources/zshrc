@@ -10,7 +10,7 @@ colors
 promptinit
 compinit
 
-# aliases + keybinds :
+# aliases + keybinds:
 setopt auto_cd
 alias v='nvim'
 alias c='clear'
@@ -18,20 +18,23 @@ alias e='exit'
 alias rm='rm -r'
 alias cp='cp -r'
 
-# scripts :
-alias build='~/GIT/dotfile/scripts/epitech/misc/builder.sh'
-alias push='~/GIT/dotfile/scripts/epitech/network/pusher.sh'
-alias coding-style='~/GIT/dotfile/scripts/epitech/coding-style-checker/coding-style.sh'
+# scripts:
+## epitech:
+alias build='~/GIT/dotfile/scripts/epitech/misc/builders/builderC.sh'
+alias buildMAKE='~/GIT/dotfile/scripts/epitech/misc/builders/builderMAKE.sh'
+alias coding-style='~/GIT/dotfile/scripts/epitech/misc/coding-style-checker/coding-style.sh'
 alias startd='~/GIT/dotfile/scripts/epitech/misc/startd.sh'
-alias import='~/GIT/dotfile/scripts/epitech/misc/importlib.sh'
+## perso:
+alias save='~/GIT/dotfile/config/wayback/scripts/saver.sh'
+alias push='~/GIT/dotfile/scripts/perso/network/pusher.sh'
 
-# cmd shortcut :
+# cmd shortcut:
 alias tek='cd ~/GIT/epitech'
 alias scr='cd ~/GIT/dotfile/scripts'
 alias lib='cd ~/GIT/epitech/lib_epitech'
 #bindkey [key] [command]
 
-# Completion : 
+# Completion: 
 setopt correct_all
 setopt autocd autopushd
 

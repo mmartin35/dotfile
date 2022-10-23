@@ -1,7 +1,9 @@
 #!/bin/bash
 server="user35p74a@31.37.54.74"
 media="/media/user/saves"
-reter="echo 'status: aborted'"
+reter="echo status: aborted"
+serverpath="~/backup/wayback"
+port="-P 4044"
 
 #	Saving config state	#
 clear
@@ -9,13 +11,13 @@ echo "status: saving state of .zshrc, .vimrc..."
 cp ~/.zshrc ~/GIT/dotfile/config/wayback/ressources/zshrc
 
 #	Server pull saver	#
-echo " Do you want to push main folders on the server ?"
+echo "Do you want to push main folders on the server ?"
 read answer
 if [ $answer = 'y' ];then
-	scp -r -P 4044 ~/Documents/light/* $server:/home/pi/backup/wayback/Documents
-	scp -r -P 4044 ~/Pictures/* $server:/home/pi/backup/wayback/Pictures        
-	scp -r -P 4044 ~/Code/* $server:/home/pi/backup/wayback/Code
-else    
+	scp -r $port ~/Documents/light/* $server:$serverpath/Documents
+#	scp -r $port  ~/Pictures/* $server:$serverpath/Pictures
+	scp -r $port  ~/Code/* $server:$serverpath/Code
+else
 	$reter
 fi
 
