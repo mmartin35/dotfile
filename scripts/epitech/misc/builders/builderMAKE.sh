@@ -1,7 +1,7 @@
 #!/bin/bash
 today=$(date +%d/%m/%Y)
 time=$(date +"%T")
-title="MAKEFILE"
+title="Makefile"
 div=##
 div2=##
 
