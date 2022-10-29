@@ -20,8 +20,9 @@ alias cp='cp -r'
 
 # scripts:
 ## epitech:
-alias build='~/GIT/dotfile/scripts/epitech/misc/builders/builderC.sh'
+alias buildC='~/GIT/dotfile/scripts/epitech/misc/builders/builderC.sh'
 alias buildMAKE='~/GIT/dotfile/scripts/epitech/misc/builders/builderMAKE.sh'
+alias importlib='cp ~/GIT/epitech/lib_epitech/* .'
 alias coding-style='~/GIT/dotfile/scripts/epitech/misc/coding-style-checker/coding-style.sh'
 alias startd='~/GIT/dotfile/scripts/epitech/misc/startd.sh'
 ## perso:
@@ -32,6 +33,7 @@ alias push='~/GIT/dotfile/scripts/perso/network/pusher.sh'
 alias tek='cd ~/GIT/epitech'
 alias scr='cd ~/GIT/dotfile/scripts'
 alias lib='cd ~/GIT/epitech/lib_epitech'
+alias lan='cd ~/Code/languages/'
 #bindkey [key] [command]
 
 # Completion: 
