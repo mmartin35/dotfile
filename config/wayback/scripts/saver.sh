@@ -15,7 +15,7 @@ echo "Do you want to push main folders on the server ?"
 read answer
 if [ $answer = 'y' ];then
 	scp -r $port ~/Documents/light/* $server:$serverpath/Documents
-#	scp -r $port  ~/Pictures/* $server:$serverpath/Pictures
+	scp -r $port  ~/Pictures/* $server:$serverpath/Pictures
 	scp -r $port  ~/Code/* $server:$serverpath/Code
 else
 	$reter
