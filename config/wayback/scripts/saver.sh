@@ -9,8 +9,8 @@ reter="echo status: aborted"
 clear
 echo "status: saving state of .zshrc, .vimrc..."
 cp ~/.zshrc ~/GIT/dotfile/config/wayback/ressources/zshrc
-cp ~/.config/i3/* ~/GIT/dotfile/config/GUI/i3
-cp ~/.config/i3status/* ~/GIT/dotfile/config/GUI/i3status
+cp ~/.config/i3/* ~/GIT/dotfile/config/wayback/ressources/GUI/i3
+cp ~/.config/i3status/* ~/GIT/dotfile/config/wayback/ressources/GUI/i3status
 
 #	Server pull saver	#
 echo "Do you want to push main folders on the server ?"
