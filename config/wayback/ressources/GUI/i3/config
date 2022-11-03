@@ -1,7 +1,7 @@
 # i3 config file (v1)
 # setup
 exec --no-startup-id feh --bg-scale .config/i3/wallpaper.jpg
-exec setxkbmap fr 
+exec setxkbmap fr
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -21,7 +21,11 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 bar {
-        status_command i3status
+	status_command i3status
+	output primary
+	tray_output none
+	font pango:DejaVu Sans Mono 10
+	separator_symbol .|.
 }
 
 # set
@@ -37,7 +41,7 @@ set $volup XF86AudioRaiseVolume
 set $voldown XF86AudioLowerVolume
 set $volmute XF86AudioMute
 set $playpause XF86AudioPlay
-set $lightup XF8Mon6BrightnessUp
+set $lightup XF86MonBrightnessUp
 set $lightdown XF86MonBrightnessDown
 ## keys
 set $ws1 "1"
@@ -54,9 +58,7 @@ set $d Down
 ## basic
 bindsym $mod+h split h
 bindsym $mod+v split v
-bindsym $mod+$return exec i3-sensible-terminal
 bindsym $mod+$shift+A kill
-bindsym $mod+d exec dmenu_run
 bindsym $mod+$l focus left
 bindsym $mod+$d focus down
 bindsym $mod+$u focus up
@@ -69,7 +71,8 @@ bindsym $mod+f fullscreen toggle
 bindsym $mod+z layout tabbed
 bindsym $mod+e layout toggle split
 bindsym $mod+$shift+space floating toggle
-bindsym $mod+space focus mode_toggle
+bindsym $mod+$shift+alt focus mode_toggle
+# Workspaces
 bindsym $mod+ampersand workspace number $ws1
 bindsym $mod+eacute workspace number $ws2
 bindsym $mod+quotedbl workspace number $ws3
@@ -80,32 +83,28 @@ bindsym $mod+$shift+eacute move container to workspace number $ws2
 bindsym $mod+$shift+3 move container to workspace number $ws3
 bindsym $mod+$shift+4 move container to workspace number $ws4
 bindsym $mod+$shift+5 move container to workspace number $ws5
+# Misc
 bindsym $mod+$shift+c reload
 bindsym $mod+$shift+r restart
 bindsym $mod+$shift+e exec "i3-nagbar -t warning -m 'Logout ?' -B 'Yes' 'i3-msg exit'"
 bindsym $mod+r mode "resize"
 
 ## personal
+# Main 
+bindsym $mod+$return exec i3-sensible-terminal
+
 bindsym $mod+$shift+f exec firefox
 bindsym $mod+$shift+d exec discord
 bindsym $mod+$shift+s exec spotify
 bindsym $mod+shift+t exec typora
-bindsym $mod+$shift+n exec firefox netflix.com
-bindsym $mod+$shift+g exec firefox github.com/login
-bindsym $mod+$shift+$esc exec i3lock-fancy -p
-bindsym $mod+$shift+w exec firefox user35p74a.ddns.net
-
-## screen setup
-bindsym --release $print exec ~/.config/i3/scripts/screenshot.sh
-bindsym --release $mod+f2 exec ~/.config/i3/scripts/xrandr_setup_split.sh
-bindsym --release $mod+f1 exec ~/.config/i3/scripts/xrandr_setup_uni.sh
+bindsym $mod+$shift+$esc exec "i3lock -c 000000"
 
 ## volume+brightness
-bindsym $voldown exec amixer set Master -q 5%-
-bindsym $volup exec amixer set Master -q 5%+
-bindsym $volmute exec amixer set Master -q 0%
-bindsym $lightup exec sudo light -A 10
-bindsym $lightdown exec sudo light -U 10
+bindsym $voldown exec "amixer set Master -q 5%-"
+bindsym $volup exec "amixer set Master -q 5%+"
+bindsym $volmute exec "amixer set Master -q 0%"
+bindsym $lightup exec "sudo light -A 10"
+bindsym $lightdown exec "sudo light -U 10"
 
 ## player control
 bindsym $playpause exec playerctl play-pause

@@ -6,20 +6,20 @@ port="-P 4044"
 
 ##	Initialysing folders	##
 echo "status: initialysing folders..."
-mkdir -p ~/GIT/epitech ~/recovery ~/Code ~/Documents
+mkdir -p ~/GIT/epitech ~/recovery ~/Code ~/Documents ~/.config
 echo "<----- folder creation done ----->"
 
 ##	Downloading packages	##
 echo "status: downloading softwares..."
 sudo apt update
 sudo apt upgrade
-sudo apt install snapd zsh gnome vlc virtualbox git neovim docker.io firefox
+sudo apt install snapd zsh i3 vlc virtualbox git neovim docker.io firefox
 sudo snap install bitwarden electron-mail spotify typora discord
 echo "<----- 1st step done ----->"
 
 ##	Recovering from server	##
 echo "status: transfering backups..."
-scp -r $port $server:$serverpath/ ~/recovery/
+scp -r $port $server:$serverpath/* ~/recovery/
 echo "<----- 2rd step done ----->"
 
 ##	Setting up github	##
@@ -40,6 +40,8 @@ cp /ressources/zshrc ~/.zshrc
 cp ~/recovery/Documents/* ~/Documents/*
 cp ~/recovery/Pictures/* ~/Pictures/*
 cp ~/recovery/Code/* ~/Code/*
+cp ~/recovery/config/i3 ~/.config/i3
+cp ~/recovery/config/i3status ~/.config/i3status
 echo "status: setting up shell..."
 chsh -s $(which zsh)
 echo "<----- 4th step done ----->"
