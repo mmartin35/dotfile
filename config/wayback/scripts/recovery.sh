@@ -15,6 +15,7 @@ sudo apt update
 sudo apt upgrade
 sudo apt install snapd zsh i3 vlc virtualbox git neovim docker.io firefox
 sudo snap install bitwarden electron-mail spotify typora discord
+sudo apt upgrade
 echo "<----- 1st step done ----->"
 
 ##	Recovering from server	##
