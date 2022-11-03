@@ -37,7 +37,7 @@ echo "<----- 3rd step done ----->"
 
 ##	Setting up config	##
 echo "status: setting up folders..."
-cp /ressources/zshrc ~/.zshrc
+cp ~/ressources/zshrc ~/.zshrc
 cp ~/recovery/Documents/* ~/Documents/*
 cp ~/recovery/Pictures/* ~/Pictures/*
 cp ~/recovery/Code/* ~/Code/*
