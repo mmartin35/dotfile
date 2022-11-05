@@ -1,5 +1,5 @@
 git add .
-git commit -m "no_commit"
+git commit -m "---"
 git push
 echo "=============================="
 echo "| git folder has been pushed |"
