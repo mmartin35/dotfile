@@ -3,13 +3,13 @@ today=$(date +%d/%m/%Y)
 time=$(date +"%T")
 div=/*
 div2=*/
+email=matthieu1.martin@epitech.eu
 
 /usr/bin/clear
-
 _select_title(){
 
     # User input.
-    printf "name: " ; read -r title
+    printf "Write down the title of your project: " ; read -r title
 
     # Remove spaces.
     title=${title// /_}
@@ -40,7 +40,7 @@ printf "%-2s\n\
 %-19s%-0s\n\
 %s\n" \
 "${div}" "** EPITECH PROJECT, 2022" '' '** Title' ": $title" '** File description:' \
-"" "** <------------------------------------------->" '' '** Made by' ": matthieu1.martin@epitech.eu" '** Creation date' ": $today at $time" \
+"" "** <------------------------------------------->" '' '** Made by' ": $email" '** Creation date' ": $today at $time" \
 "${div2}" > $title
 
 /usr/bin/clear
