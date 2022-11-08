@@ -18,5 +18,3 @@ printf "%-2s\n\
 "${div}" '** Language' ': C' '** Title' ": $title" '** File description:' \
 "" "** <------------------------------------------->" '' '** Made by' ": $email" '** Creation date' ": $today at $time" \
 "${div2}" > $title
-
-/usr/bin/clear
