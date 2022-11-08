@@ -1,7 +1,5 @@
 #!/bin/bash
-echo "Name :"
-read NAME
-mkdir -p $NAME/src
-cp -r ~/GIT/current/tech_src/getlib/* $NAME/
+mkdir src
+cp -r ~/GIT/current/tech_src/getlib/* .
 ~/GIT/dotfile/scripts/epitech/builders/builderMain.sh
-mv main.c $NAME/
+mv main.c .
