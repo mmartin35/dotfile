@@ -1,5 +1,5 @@
 #!/bin/bash
-args=echo (git status | grep 'modified:' | sed 's/^.*: //' | tr -d '\n')
+args="git status | grep 'modified:' | sed 's/^.*: //' | tr -d '\n'"
 
 git add .
 git commit -m "updated: $args"
