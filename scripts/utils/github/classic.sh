@@ -8,7 +8,7 @@ git add *
 if [ -z $argsadd ];then
 	argsadded=""
 else
-	argsadded="| Added:$argsadd"
+	argsadded="| ✏️ Added:$argsadd"
 fi
 if [ -z $argsdel ];then
 	if [ -z $advancement ];then
