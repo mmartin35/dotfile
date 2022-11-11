@@ -8,7 +8,7 @@ git add *
 if [ -z $argsadd ];then
 	if [ -z $argsdel ];then
 		if [ -z $advancement ];then
-                	git commit -m "🚀 Updated:$argsmod $argsadded"
+                	git commit -m "🚀 Updated:$argsmod"
         	else
                 	git commit -m "🚀 Updated:$argsmod | 🔋 Advancement: $advancement%"
         	fi
