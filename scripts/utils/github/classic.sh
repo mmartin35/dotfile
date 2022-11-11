@@ -11,7 +11,6 @@ if [ -z $argsdel ];then
 	else
 		git commit -m "🚀 Updated:$argsmod | 🔋 Advancement: $advancement%"
 	fi
-	git commit -m "🚀 Updated:$argsmod | ✂ Deleted:$argsdel"
 else
 	if [ -z $advancement ];then
 		git commit -m "🚀 Updated:$argsmod | ✂ Deleted:$argsdel"
