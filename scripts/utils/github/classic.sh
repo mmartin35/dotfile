@@ -1,7 +1,7 @@
 #!/bin/bash
 argsmod=$(git status | grep 'modified:' | sed 's/^.*: //' | tr -d '\n')
 argsdel=$(git status | grep 'deleted:' | sed 's/^.*: //' | tr -d '\n')
-echo "Advancement (decimal):"
+echo "Advancement (..%):"
 read advancement
 git add .
 git commit -m "🚀 Updated:$argsmod | 🔋 Advancement: $advancement% | ✂️ Deleted:$argsdel"
