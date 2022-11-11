@@ -1,6 +1,7 @@
 #!/bin/bash
 argsmod=$(git status | grep 'modified:' | sed 's/^.*: //' | tr -d '\n')
 argsdel=$(git status | grep 'deleted:' | sed 's/^.*: //' | tr -d '\n')
+argsadd=$(git status | grep -A1 "git add <file>" | tail -1)
 echo "Advancement (..%):"
 read advancement
 git add *
@@ -22,3 +23,4 @@ git push
 echo "=============================="
 echo "| git folder has been pushed |"
 echo "=============================="
+echo "$argsadd"
