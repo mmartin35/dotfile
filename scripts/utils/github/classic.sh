@@ -6,22 +6,32 @@ echo "Advancement (..%):"
 read advancement
 git add *
 if [ -z $argsadd ];then
-	argsadded=""
-else
-	argsadded="| ✏️ Added:$argsadd"
-fi
-
-if [ -z $argsdel ];then
-	if [ -z $advancement ];then
-		git commit -m "🚀 Updated:$argsmod $argsadded"
+	if [ -z $argsdel ];then
+		if [ -z $advancement ];then
+                	git commit -m "🚀 Updated:$argsmod $argsadded"
+        	else
+                	git commit -m "🚀 Updated:$argsmod | 🔋 Advancement: $advancement%"
+        	fi
 	else
-		git commit -m "🚀 Updated:$argsmod | 🔋 Advancement: $advancement% $argsadded"
+        	if [ -z $advancement ];then
+               		git commit -m "🚀 Updated:$argsmod | ✂ Deleted:$argsdel"
+        	else
+                	git commit -m "🚀 Updated:$argsmod | 🔋 Advancement: $advancement% | ✂ Deleted:$argsdel"
+        	fi
 	fi
 else
-	if [ -z $advancement ];then
-		git commit -m "🚀 Updated:$argsmod | ✂ Deleted:$argsdel $argsadded"
+	if [ -z $argsdel ];then
+        	if [ -z $advancement ];then
+                	git commit -m "🚀 Updated:$argsmod | ✏️ Added:$argsadd"
+        	else
+                	git commit -m "🚀 Updated:$argsmod | 🔋 Advancement: $advancement% | ✏ Added:$argsadd"
+        	fi
 	else
-		git commit -m "🚀 Updated:$argsmod | 🔋 Advancement: $advancement% | ✂️ Deleted:$argsdel $argsadded"
+        	if [ -z $advancement ];then
+                	git commit -m "🚀 Updated:$argsmod | ✂ Deleted:$argsdel | ✏ Added:$argsadd"
+        	else
+                	git commit -m "🚀 Updated:$argsmod | 🔋 Advancement: $advancement% | ✂ Deleted:$argsdel $argsadded | ✏ Added:$argsadd"
+        	fi
 	fi
 fi
 git push
