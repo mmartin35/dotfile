@@ -10,6 +10,7 @@ if [ -z $argsadd ];then
 else
 	argsadded="| ✏️ Added:$argsadd"
 fi
+
 if [ -z $argsdel ];then
 	if [ -z $advancement ];then
 		git commit -m "🚀 Updated:$argsmod $argsadded"
