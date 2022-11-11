@@ -1,8 +1,7 @@
-#!/bin/bash
-args="git status | grep 'modified:' | sed 's/^.*: //' | tr -d '\n'"
-
+echo "Write down your commit :"
+read commit
 git add .
-git commit -m "updated: $args"
+git commit -m "$commit"
 git push
 echo "=============================="
 echo "| git folder has been pushed |"
