@@ -1,6 +1,6 @@
 echo "Write down your commit :"
 read commit
-git add .
+git add *
 git commit -m "$commit"
 git push
 echo "=============================="

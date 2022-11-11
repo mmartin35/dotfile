@@ -3,7 +3,7 @@ mv ~/GIT/current/epi_src/getlib/* .
 mkdir src
 echo "Commit name:"
 read Name
-git add .
+git add *
 git commit -m "♣️ First commit of $Name"
 git push
 echo "=============================="
