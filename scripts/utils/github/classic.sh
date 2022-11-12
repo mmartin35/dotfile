@@ -29,7 +29,7 @@ if [ $push == "yes" ];then
 	echo "=============================="
 	echo "| git folder has been pushed |"
 	echo "=============================="
-else if [ -z $push ];then
+elif [ -z $push ];then
 	echo "waiting to push..."
 else
 	echo "waiting to push..."
