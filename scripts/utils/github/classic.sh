@@ -1,4 +1,5 @@
 #!/bin/bash
+
 argsmodify=$(git status | grep 'modified:' | sed 's/^.*: //' | tr -d '\n')
 argsdel=$(git status | grep 'deleted:' | sed 's/^.*: //' | tr -d '\n')
 argsadd=$(git status | grep -A1 "git add <file>" | tail -1 | tr -d '\n')
