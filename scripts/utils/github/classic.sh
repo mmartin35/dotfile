@@ -46,7 +46,7 @@ else
 fi
 echo "push now ?"
 read push
-if [ $push == 'y' ];then
+if [ $push = 'y' ];then
 	git push
 	echo "=============================="
 	echo "| git folder has been pushed |"
