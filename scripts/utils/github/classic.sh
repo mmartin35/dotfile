@@ -5,11 +5,15 @@ argsadd=$(git status | grep -A1 "git add <file>" | tail -1 | tr -d '\n')
 echo "Advancement (..%):"
 read advancement
 git add *
+
+#	Modifier	#
 if [ -z $argsmodify ];then
 	argsmod=" x "
 else
 	argsmod=$argsmodify
 fi
+
+#	Infos format	#
 if [ -z $argsadd ];then
 	if [ -z $argsdel ];then
 		if [ -z $advancement ];then
