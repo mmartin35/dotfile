@@ -1,12 +1,14 @@
 #!/bin/bash
-argsmod=$(git status | grep 'modified:' | sed 's/^.*: //' | tr -d '\n')
+argsmodify=$(git status | grep 'modified:' | sed 's/^.*: //' | tr -d '\n')
 argsdel=$(git status | grep 'deleted:' | sed 's/^.*: //' | tr -d '\n')
 argsadd=$(git status | grep -A1 "git add <file>" | tail -1 | tr -d '\n')
 echo "Advancement (..%):"
 read advancement
 git add *
-if [ -z $argsmod ];then
-	$argsmod = "x"
+if [ -z $argsmodify ];then
+	argsmod="x"
+else
+	argsmod=$argsmodify
 fi
 if [ -z $argsadd ];then
 	if [ -z $argsdel ];then
