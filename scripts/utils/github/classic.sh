@@ -39,7 +39,7 @@ else
         	if [ -z $advancement ];then
                 	git commit -m "🚀 Updated:$argsmod | ✂ Deleted:$argsdel | ✏ Added:$argsadd"
         	else
-                	git commit -m "🚀 Updated:$argsmod | 🔋 Advancement: $advancement% | ✂ Deleted:$argsdel $argsadded | ✏ Added:$argsadd"
+                	git commit -m "🚀 Updated:$argsmod | 🔋 Advancement: $advancement% | ✂ Deleted:$argsdel | ✏ Added:$argsadd"
         	fi
 	fi
 fi
