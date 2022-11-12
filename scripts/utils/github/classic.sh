@@ -6,7 +6,7 @@ echo "Advancement (..%):"
 read advancement
 git add *
 if [ -z $argsmodify ];then
-	argsmod="x"
+	argsmod=" x "
 else
 	argsmod=$argsmodify
 fi
