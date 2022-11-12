@@ -43,7 +43,13 @@ else
         	fi
 	fi
 fi
-git push
-echo "=============================="
-echo "| git folder has been pushed |"
-echo "=============================="
+echo "push now ?"
+read push
+if [ $push == "y" ];then
+	git push
+	echo "=============================="
+	echo "| git folder has been pushed |"
+	echo "=============================="
+else
+	echo "waiting to push..."
+fi
