@@ -24,13 +24,11 @@ git commit -m "$p_argsmod $p_advancement $p_argsadd $p_argsdel"
 
 echo "push now ? (yes/a)"
 read push
-if [ $push = 'yes' ];then
+if [ $push == "yes" ];then
 	git push
 	echo "=============================="
 	echo "| git folder has been pushed |"
 	echo "=============================="
-elif [ -z $push ];then
-	echo "waiting to push..."
 else
 	echo "waiting to push..."
 fi
