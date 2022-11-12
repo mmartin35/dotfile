@@ -14,7 +14,7 @@ else
 fi
 
 #	Infos format	#
-if [ -z argsadd ];then
+if [ -z $argsadd ];then
 	if [ -z $argsdel ];then
 		if [ -z $advancement ];then
                 	git commit -m "🚀 Updated:$argsmod"
