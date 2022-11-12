@@ -33,3 +33,4 @@ else if [ -z $push ];then
 	echo "waiting to push..."
 else
 	echo "waiting to push..."
+fi
