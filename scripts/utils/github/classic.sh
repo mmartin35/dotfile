@@ -7,7 +7,7 @@ argsadd=$(git status | grep -A1 '"git add <file>..." to include' | tail -1 | tr 
 echo "Advancement (..%):" && read advancement
 
 #	TEST		#
-if [ -n $argsmofidy];then
+if [ -n $argsmofidy ];then
 	p_argsmod="| 🚀 Updated:$argsmod"
 fi
 if [ -n $advancement ];then
