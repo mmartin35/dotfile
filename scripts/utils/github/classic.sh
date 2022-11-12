@@ -23,9 +23,9 @@ if [ -n $argsdel ];then
 fi
 git commit -m "$p_argsmod $p_advancement $argsadd $argsdel"
 
-echo "push now ?"
+echo "push now ? (yes/a)"
 read push
-if [ $push = "y" ];then
+if [ $push = "yes" ];then
 	git push
 	echo "=============================="
 	echo "| git folder has been pushed |"
