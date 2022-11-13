@@ -29,7 +29,7 @@ fi
 if [ -n $argsdel ];then
 	p_argsdel="> removed:$argsdel"
 fi
-git commit -m "| $p_argsmod $p_advancement $p_comment $p_argsadd $p_argsdel |"
+git commit -m "| $p_argsmod ~ $p_advancement ~ $p_comment ~ $p_argsadd ~ $p_argsdel |"
 
 #	PUSH		#
 echo "push now ? (yes/a)"
