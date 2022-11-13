@@ -14,22 +14,22 @@ read comment
 
 #	COMMIT GEN	#
 if [ -n $argsmofidy ];then
-	p_argsmod="| > updating: $argsmod "
+	p_argsmod="> updating: $argsmod"
 fi
 if [ -n $advancement ];then
-	p_advancement="| > advancement: $advancement% "
+	p_advancement="> advancement: $advancement%"
 fi
 if [ -n $comment ];then
-        p_comment="| > comment: $comment "
+        p_comment="> comment: $comment"
 fi
 if [ -n $argsadd ];then
         git add *
-	p_argsadd="| > added:$argsadd "
+	p_argsadd="> added:$argsadd"
 fi
 if [ -n $argsdel ];then
-	p_argsdel="| > removed:$argsdel "
+	p_argsdel="> removed:$argsdel"
 fi
-git commit -m "$p_argsmod $p_advancement $p_comment $p_argsadd $p_argsdel |"
+git commit -m "| $p_argsmod $p_advancement $p_comment $p_argsadd $p_argsdel |"
 
 #	PUSH		#
 echo "push now ? (yes/a)"
