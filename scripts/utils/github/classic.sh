@@ -19,7 +19,7 @@ fi
 if [ -n $advancement ];then
 	p_advancement="| 🔋 Advancement: $advancement% "
 fi
-if [ -n $comment ];then                      
+if [ -n $comment ];then
         p_comment="| > Comment: $comment "
 fi
 if [ -n $argsadd ];then
