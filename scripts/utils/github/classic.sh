@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#	DECLARATIONS	#
 argsmod=$(git status | grep 'modified:' | sed 's/^.*: //' | tr -d '\n')
 argsdel=$(git status | grep 'deleted:' | sed 's/^.*: //' | tr -d '\n')
 argsadd=$(git status | grep -A1 '"git add <file>..." to include' | tail -1 | tr -d '\n')
@@ -10,7 +11,8 @@ echo "Advancement (..%):"
 read advancement
 echo "Comment:"
 read comment
-#	TEST		#
+
+#	COMMIT GEN	#
 if [ -n $argsmofidy ];then
 	p_argsmod="| 🚀 Updated:$argsmod "
 fi
@@ -29,6 +31,7 @@ if [ -n $argsdel ];then
 fi
 git commit -m "$p_argsmod $p_advancement $p_comment $p_argsadd $p_argsdel |"
 
+#	PUSH		#
 echo "push now ? (yes/a)"
 read temp
 if [ -z $temp ];then
