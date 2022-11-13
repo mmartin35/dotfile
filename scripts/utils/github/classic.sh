@@ -14,20 +14,20 @@ read comment
 
 #	COMMIT GEN	#
 if [ -n $argsmofidy ];then
-	p_argsmod="| 🚀 Updated:$argsmod "
+	p_argsmod="| > updating: $argsmod "
 fi
 if [ -n $advancement ];then
-	p_advancement="| 🔋 Advancement: $advancement% "
+	p_advancement="| > advancement: $advancement% "
 fi
 if [ -n $comment ];then
-        p_comment="| > Comment: $comment "
+        p_comment="| > comment: $comment "
 fi
 if [ -n $argsadd ];then
         git add *
-	p_argsadd="| ✏ Added:$argsadd "
+	p_argsadd="| > added:$argsadd "
 fi
 if [ -n $argsdel ];then
-	p_argsdel="| ✂ Deleted:$argsdel "
+	p_argsdel="| > removed:$argsdel "
 fi
 git commit -m "$p_argsmod $p_advancement $p_comment $p_argsadd $p_argsdel |"
 
