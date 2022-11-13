@@ -6,22 +6,26 @@ argsadd=$(git status | grep -A1 '"git add <file>..." to include' | tail -1 | tr 
 
 echo "Advancement (..%):"
 read advancement
-
+echo "Comment:"
+read comment
 #	TEST		#
 if [ -n $argsmofidy ];then
-	p_argsmod="| 🚀 Updated:$argsmod"
+	p_argsmod="| 🚀 Updated:$argsmod "
 fi
 if [ -n $advancement ];then
-	p_advancement="| 🔋 Advancement: $advancement%"
+	p_advancement="| 🔋 Advancement: $advancement% "
+fi
+if [ -n $comment ];then                      
+        p_comment="| > Comment: $comment "
 fi
 if [ -n $argsadd ];then
         git add *
-	p_argsadd="| ✏ Added:$argsadd"
+	p_argsadd="| ✏ Added:$argsadd "
 fi
 if [ -n $argsdel ];then
-	p_argsdel="| ✂ Deleted:$argsdel"
+	p_argsdel="| ✂ Deleted:$argsdel "
 fi
-git commit -m "$p_argsmod $p_advancement $p_argsadd $p_argsdel |"
+git commit -m "$p_argsmod $p_advancement $p_comment $p_argsadd $p_argsdel |"
 
 echo "push now ? (yes/a)"
 read temp
