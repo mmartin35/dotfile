@@ -13,9 +13,9 @@ read comment
 if [ -n $argsmofidy ];then
 	p_argsmod="> updating: $argsmod | "
 fi
-if [ -n $comment ];then
-        p_comment="> comment: $comment | "
-fi
+
+p_comment="> comment: $comment | "
+
 if [ -n $argsadd ];then
         git add *
 	p_argsadd="> added: $argsadd | "
