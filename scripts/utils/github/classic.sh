@@ -17,10 +17,11 @@ fi
 p_comment="> comment: $comment | "
 
 if [ -n $argsadd ];then
-        git add *
+        git add .
 	p_argsadd="> added: $argsadd | "
 fi
 if [ -n $argsdel ];then
+	git add .
 	p_argsdel="> removed: $argsdel | "
 fi
 git commit -m "$p_argsmod $p_comment $p_argsadd $p_argsdel"
