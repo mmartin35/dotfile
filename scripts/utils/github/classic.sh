@@ -11,18 +11,18 @@ read comment
 
 #	COMMIT GEN	#
 if [ -n $argsmofidy ];then
-	p_argsmod="> updating: $argsmod | "
+	p_argsmod="> update: $argsmod | "
 fi
 
 p_comment="> comment: $comment | "
 
 if [ -n $argsadd ];then
         git add .
-	p_argsadd="> added: $argsadd | "
+	p_argsadd="> add: $argsadd | "
 fi
 if [ -n $argsdel ];then
 	git add .
-	p_argsdel="> removed: $argsdel | "
+	p_argsdel="> remove: $argsdel | "
 fi
 git commit -m "$p_argsmod $p_comment $p_argsadd $p_argsdel"
 

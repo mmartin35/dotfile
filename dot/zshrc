@@ -1,3 +1,4 @@
+#! /bin/zsh ~
 unsetopt BEEP
 export PAGER="less"
 export EDITOR="nvim"
@@ -15,26 +16,37 @@ setopt auto_cd
 alias v='nvim'
 alias c='clear'
 alias e='exit'
-alias l='ls -a'
+alias ran='ranger'
+alias sl='ls'
+
+alias la='ls -a'
+alias ll='ls -l'
+
 alias rm='rm -r'
 alias cp='cp -r'
 
 # scripts:
 ## epitech:
-alias buildC='~/GIT/dotfile/scripts/epitech/misc/builders/builderC.sh'
-alias buildMAKE='~/GIT/dotfile/scripts/epitech/misc/builders/builderMAKE.sh'
-alias importlib='cp ~/GIT/epitech/lib_epitech/* .'
-alias coding-style='~/GIT/dotfile/scripts/epitech/misc/coding-style-checker/coding-style.sh'
-alias startd='~/GIT/dotfile/scripts/epitech/misc/startd.sh'
+alias pc='~/GIT/dotfile/scripts/epitech/builders/pcreate.sh'
+alias be='~/GIT/dotfile/scripts/epitech/builders/builderC.sh'
+alias coding-style='~/GIT/dotfile/scripts/epitech/coding-style-checker/coding-style.sh'
+
 ## perso:
-alias save='~/GIT/dotfile/config/wayback/scripts/saver.sh'
-alias push='~/GIT/dotfile/scripts/perso/network/pusher.sh'
+alias save='~/GIT/wayback/scripts/saver.sh'
+alias bp='~/GIT/dotfile/scripts/utils/builders/builderC.sh'
+
+## github:
+alias gm='~/GIT/dotfile/scripts/utils/github/manual.sh'
+alias gc='~/GIT/dotfile/scripts/utils/github/classic.sh'
+alias gs='git status'
+
+## server:
+alias cf='~/GIT/dotfile/scripts/utils/server/fast.sh'
+alias cu='~/GIT/dotfile/scripts/utils/server/user.sh'
 
 # cmd shortcut:
-alias tek='cd ~/GIT/epitech'
+alias ...="cd ../.."
 alias scr='cd ~/GIT/dotfile/scripts'
-alias lib='cd ~/GIT/epitech/lib_epitech'
-alias lan='cd ~/Code/languages/'
 #bindkey [key] [command]
 
 # Completion: 
@@ -122,8 +134,8 @@ setopt PROMPT_SUBST
 
 # Override PROMPT if it does not use the gitprompt function
 [[ "$PROMPT" != *gitprompt* && "$RPROMPT" != *gitprompt* ]] \
-    && PROMPT='%B%40<..<%~ %b$(gitprompt)' \
-    && PROMPT+='%(?.%(!.%F{white}❯%F{yellow}❯%F{red}.%F{blue}❯%F{cyan}❯%F{green})❯.%F{red}❯❯❯)%f '
+    && PROMPT='%Buser35p74a: %B%40<..<%~ %b$(gitprompt)' \
+    && PROMPT+='%(?.%(!.%F{white}❯%F{white}❯%F{red}.%F{white}❯%F{white}❯%F{white})❯.%F{red}❯❯❯)%f '
 
 # Find an awk implementation
 # Prefer nawk over mawk and mawk over awk
