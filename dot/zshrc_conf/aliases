@@ -1,0 +1,24 @@
+#!
+
+# general:
+alias v='nvim'
+alias c='clear'
+alias e='exit'
+alias sl='exa'
+alias ls='exa'
+alias tree='exa -T --icons'
+
+alias rm='rm -r'
+alias cp='cp -r'
+
+alias gs='git status'
+alias gc='git clone'
+
+# scripts:
+alias coding-style='~/GIT/dotfile/scripts/epitech/coding-style-checker/coding-style.sh'
+alias cf='~/GIT/dotfile/scripts/utils/server/fast.sh'
+alias cu='~/GIT/dotfile/scripts/utils/server/user.sh'
+
+# shortcut:
+alias ...="cd ../.."
+alias scr='cd ~/GIT/dotfile/scripts'
