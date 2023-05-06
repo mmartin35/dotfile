@@ -13,15 +13,14 @@ _insert_comment() {
 }
 
 _check_empty_args() {
+    git add .
     if [ -f $argsmofidy ];then
         p_argsmod=">UD: $argsmod "
     fi
     if [ -f $argsadd ];then
-        git add .
         p_argsadd=">ADD: $argsadd "
     fi
     if [ -f $argsdel ];then
-        git add .
         p_argsdel=">RM: $argsdel "
     fi
     p_comment="> comment: $comment "
