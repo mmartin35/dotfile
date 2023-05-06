@@ -8,6 +8,7 @@ _install_nvim_fs() {
 #           INSTALL         #
 
 _build_dirs() {
+    mkdir $HOME/GIT
     return
 }
 
