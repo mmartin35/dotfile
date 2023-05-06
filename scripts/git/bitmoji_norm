@@ -1,0 +1,21 @@
+STRUCTURE
+a.    🎉  =   begin a project
+b.    🚨  =   fix compiler
+
+ACCESSIBILITY
+c.    📝  =   add/update doc
+d.    🎨  =   coding style
+
+BASIC
+e.    🚧  =   work in progress
+f.    ✨  =   new feature
+g.    🐛  =   fix bug
+h.    🔥  =   rm files
+i.    🔧  =   add/update config file
+
+PROJECT TESTS
+j.    🔨  =   add/update dev scripts
+k.    ✅  =   add/update/pass tests
+
+OTHERS
+l.    🍻  =   update code drunkenly
