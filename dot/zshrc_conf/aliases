@@ -9,6 +9,7 @@ alias e='exit'
 alias sl='exa'
 alias ls='exa'
 alias tree='exa -T --icons'
+alias cat='/bin/batcat'
 
 alias rm='rm -r'
 alias cp='cp -r'
