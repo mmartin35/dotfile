@@ -55,6 +55,3 @@ _check_server() {
 _reload_server() {
 	echo "not yet implemented"
 }
-
-echo "Action selector to be done"
-exit 0

@@ -1,22 +1,22 @@
 #!
-
 # general:
 alias ...="cd ../.."
 
 alias v='nvim'
 alias c='clear'
 alias e='exit'
-alias sl='exa'
+
 alias ls='exa'
+alias sl='exa'
 alias tree='exa -T --icons'
+
 alias cat='/bin/batcat'
+alias ccat='/bin/cat'
 
 alias rm='rm -r'
 alias cp='cp -r'
 
-alias epitest='sudo docker run -it --rm -v $PWD:/tmp/workspace -w /tmp/workspace epitechcontent/epitest-docker:latest /bin/bash'
-
 alias gs='git status'
 alias gc='git clone'
 
-alias scr='cd ~/GIT/dotfile/scripts'
+alias epitest='sudo docker run -it --rm -v $PWD:/tmp/workspace -w /tmp/workspace epitechcontent/epitest-docker:latest /bin/bash'

@@ -66,6 +66,3 @@ _setting_up_git() {
 _setting_up_folders() {
 	echo "not yet implemented"
 }
-
-echo "Action selector to be done"
-exit 0
