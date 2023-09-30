@@ -9,7 +9,7 @@ _get_git_status() {
 _insert_comment() {
 	echo "Write down the commit"
 	read comment
-	if [ -z $comment ];then
+	if [[ -z $comment ]];then
 		_insert_comment
 	else
 		comment_to="[C] $comment "
