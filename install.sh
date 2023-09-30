@@ -8,19 +8,22 @@ _install_nvim_fs() {
 #           INSTALL         #
 
 _build_dirs() {
-    mkdir $HOME/GIT
+    mkdir $HOME/Dev
     return
 }
 
 _setup_auths() {
     # ssh key #
-    ssh-keygen -f %HOME/.ssh/ssh_auth -N ""
+    ssh-keygen -f %HOME/.ssh/git_key -N ""
     return
 }
 
 _install_soft() {
     sudo apt install zsh git docker.io kitty
-    _install_nvim_fs
+## zsh dependencies
+	sudo apt install exa
+##    _install_nvim_fs
+sudo apt install neovim
     return
 }
 
