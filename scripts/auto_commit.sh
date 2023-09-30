@@ -2,9 +2,9 @@
 /bin/clear
 
 _get_git_status() {
-	argsmod=$(git status | grep -A1 'modified:' | sed 's/^.*: //' | tr -d '\n')
-	argsdel=$(git status | grep -A1 'deleted:' | sed 's/^.*: //' | tr -d '\n')
-	argsadd=$(git status | grep -A1 '"git add <file>..." to include' | tail -1 | tr -d '\n'| sed -e 's/^[ \t]*//')
+	modified=$(git status | grep -A1 'modified:' | sed 's/^.*: //' | tr -d '\n')
+	deleted=$(git status | grep -A1 'deleted:' | sed 's/^.*: //' | tr -d '\n')
+	added=$(git status | grep -A1 '"git add <file>..." to include' | tail -1 | tr -d '\n'| sed -e 's/^[ \t]*//')
 }
 _insert_comment() {
 	echo "Write down the commit"
@@ -16,26 +16,24 @@ _insert_comment() {
 	fi
 }
 _check_empty_args() {
-if [ -n $argsmofidy ];then
-	update_to="[U] $argsmod "
-fi
-
-if [ -n $argsadd ];then
-        git add .
-	add_to="[A] $argsadd "
-fi
-
-if [ -n $argsdel ];then
-	git add .
-	del_to="[R] $argsdel "
-fi
+	if [[ -n $modified ]];then
+		update_to="[U] $modified "
+	fi
+	if [[ -n $added ]];then
+        	git add *
+		add_to="[A] $added "
+	fi
+	if [[ -n $deleted ]];then
+		git add *
+		del_to="[R] $deleted "
+	fi
 }
 _get_branch() {
-while [ -z $branch_name ]
-do
-	echo "which branch to push ?"
-	read branch_name
-done
+	while [[ -z $branch_name ]]
+	do
+		echo "which branch to push ?"
+		read branch_name
+	done
 }
 _format_and_push() {
 	git commit -m "$comment_to -> $update_to $add_to $del_to"
