@@ -31,8 +31,11 @@ _check_empty_args() {
 _get_branch() {
 	while [[ -z $branch_name ]]
 	do
-		echo "which branch to push ?"
+		echo "which branch to push ? (default branch: main)"
 		read branch_name
+		if [[ -z $branch_name ]];then
+			branch_name="main"
+		fi
 	done
 }
 _format_and_push() {

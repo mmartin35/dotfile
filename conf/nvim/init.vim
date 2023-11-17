@@ -29,20 +29,23 @@ au InsertEnter * call InsertStatuslineColor(v:insertmode)
 au InsertLeave * hi statusline ctermfg=7 ctermbg=0
 hi statusline ctermfg=7 ctermbg=0
 
-set statusline=
-set statusline+=[%{StatuslineGit()}]
-set statusline+=\ at
-set statusline+=\ %F
-set statusline+=%=%l
-
 cnoreabbrev tree NERDTree
 
 call plug#begin('~/.config/nvim/plugged')
+ Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+ Plug 'nvim-lualine/lualine.nvim'
+" If you want to have icons in your statusline choose one of these
+ Plug 'nvim-tree/nvim-web-devicons'
  Plug 'scrooloose/nerdtree'
  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
  Plug 'windwp/nvim-autopairs'
+ Plug 'nvim-lua/plenary.nvim'
+ Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.4' }
 call plug#end()
+
+colorscheme catppuccin-mocha
 
 lua << EOF
 require("nvim-autopairs").setup {}
+require('lualine').setup()
 EOF
