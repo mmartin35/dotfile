@@ -32,7 +32,7 @@ function build_home() {
 
 function install_sources() {
     # APT sources
-    sudo apt install zsh git docker.io kitty exa bat
+    sudo apt install zsh git docker.io kitty exa bat make valgrind
 
     # Github sources
     if [ ! -d "$SOURCE_DIR/neovim" ]; then
