@@ -17,16 +17,16 @@ function create_environment_variables() {
 
 # Install config
 function build_home() {
-    if [ ! -d "$HOME/$CODE_DIR/epitech" ]; then
-        mkdir -p "$HOME/$CODE_DIR/epitech"
+    if [ ! -d "$CODE_DIR/epitech" ]; then
+        mkdir -p "$CODE_DIR/epitech"
     fi
 
-    if [ ! -d "$HOME/$CODE_DIR/tools" ]; then
-        mkdir -p "$HOME/$CODE_DIR/tools"
+    if [ ! -d "$CODE_DIR/tools" ]; then
+        mkdir -p "$CODE_DIR/tools"
     fi
 
-    if [ ! -d "$HOME/$SOURCE_DIR" ]; then
-        mkdir "$HOME/$SOURCE_DIR"
+    if [ ! -d "$SOURCE_DIR" ]; then
+        mkdir "$SOURCE_DIR"
     fi
 }
 
@@ -35,15 +35,15 @@ function install_sources() {
     sudo apt install zsh git docker.io kitty exa bat
 
     # Github sources
-    if [ ! -d "$HOME/$SOURCE_DIR/neovim" ]; then
-        git clone git@github.com:neovim/neovim.git "$HOME/$SOURCE_DIR/neovim"
-        cd "$HOME/$SOURCE_DIR/neovim"
+    if [ ! -d "$SOURCE_DIR/neovim" ]; then
+        git clone git@github.com:neovim/neovim.git "$SOURCE_DIR/neovim"
+        cd "$SOURCE_DIR/neovim"
         make CMAKE_BUILD_TYPE=RelWithDebInfo
         sudo make install
     fi
 
-    if [ ! -d "$HOME/$SOURCE_DIR/coding-style-checker" ]; then
-        git clone git@github.com:epitech/coding-style-checker.git "$HOME/$SOURCE_DIR/coding-style-checker"
+    if [ ! -d "$SOURCE_DIR/coding-style-checker" ]; then
+        git clone git@github.com:epitech/coding-style-checker.git "$SOURCE_DIR/coding-style-checker"
     fi
 
     # Docker images
