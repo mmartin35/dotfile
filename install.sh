@@ -1,16 +1,18 @@
 #!/bin/bash
 
-# Save config
-function import_data() {
-    cp "$HOME/.config/nvim/init.vim" "$PWD/config/nvim/"
-    cp "$HOME/.zshrc" "$PWD/dot/zshrc"
-    cp -r "$HOME/.zshrc_conf/" "$PWD/dot/zshrc_conf/"
-}
+function create_environment_variables() {
+    # Check and create environment variables
+    if [ -z "$DOTFILE" ]; then
+        export DOTFILE="$HOME/Dotfile" # Where Dotfile is
+    fi
 
-function upload_updates() {
-    git add .
-    git commit -m "New config version"
-    git push origin main
+    if [ -z "$SOURCE_DIR" ]; then
+        export SOURCE_DIR="$HOME/Sources" # Where downloaded sources are
+    fi
+
+    if [ -z "$CODE_DIR" ]; then
+        export CODE_DIR="$HOME/Code" # Where coding workspace is
+    fi
 }
 
 # Install config
@@ -47,28 +49,41 @@ function install_sources() {
 
 function export_data_and_preferences() {
     # Export data
-    cp "$PWD/conf/*" "$HOME/.config"
+    cp "$DOTFILE/conf/*" "$HOME/.config"
 
     # Scripts (symlinks)
     if [ ! -e "/usr/local/bin/auto_commit" ]; then
-        sudo ln -s "$PWD/scripts/git/auto_commit.sh" "/usr/local/bin/auto_commit"
+        sudo ln -s "$DOTFILE/scripts/git/auto_commit.sh" "/usr/local/bin/auto_commit"
     fi
 
     if [ ! -e "/usr/local/bin/header" ]; then
-        sudo ln -s "$PWD/scripts/headers/epitech_header.sh" "/usr/local/bin/header"
+        sudo ln -s "$DOTFILE/scripts/headers/epitech_header.sh" "/usr/local/bin/header"
     fi
 
     exa /usr/local/bin
 
     # Preferences
-    cp -r "$PWD/config/nvim" "$HOME/.config"
-    cp "$PWD/dot/zshrc" "$HOME/.zshrc"
-    cp -r "$PWD/dot/zshrc_conf" "$HOME/.zshrc_conf"
+    cp -r "$DOTFILE/config/nvim" "$HOME/.config"
+    cp "$DOTFILE/dot/zshrc" "$HOME/.zshrc"
+    cp -r "$DOTFILE/dot/zshrc_conf" "$HOME/.zshrc_conf"
 }
 
 function update_all() {
     sudo apt update
     sudo apt upgrade
+}
+
+# Save config
+function import_data() {
+    cp "$HOME/.config/nvim/init.vim" "$DOTFILE/config/nvim/"
+    cp "$HOME/.zshrc" "$DOTFILE/dot/zshrc"
+    cp -r "$HOME/.zshrc_conf/" "$DOTFILE/dot/zshrc_conf/"
+}
+
+function upload_updates() {
+    git add .
+    git commit -m "New config version"
+    git push origin main
 }
 
 function cat_readme() {
@@ -84,11 +99,8 @@ if [ $# == 1 ]; then
     if [ $1 == "-h" ]; then
         cat_readme
     else
-        # Dir setup
-        SOURCE_DIR="$HOME/Sources" # Where downloaded sources are
-        CODE_DIR="$HOME/Code" # Where coding workspace is
         if [ $1 == "1" ]; then
-            cd "$HOME/Dotfile"
+            create_environment_variables
             update_all
             build_home
             install_sources
@@ -96,7 +108,6 @@ if [ $# == 1 ]; then
             echo "Installation done..."
             exit 0
         elif [ $1 == "2" ]; then
-            cd "$HOME/Dotfile"
             import_data
             upload_updates
             echo "Saving done..."
