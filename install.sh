@@ -31,8 +31,16 @@ function build_home() {
 }
 
 function install_sources() {
-    # APT sources
-    sudo apt install zsh git docker.io kitty exa bat make valgrind cmake gettext
+    # Arch Linux package manager check
+    if command -v pacman &> /dev/null; then
+        sudo pacman -Syu --noconfirm zsh git docker kitty exa bat make valgrind cmake gettext
+    elif command -v apt &> /dev/null; then
+        # APT sources
+        sudo apt install -y zsh git docker.io kitty exa bat make valgrind cmake gettext
+    else
+        echo "Unsupported package manager. Please install the required packages manually."
+        exit 1
+    fi
 
     # Github sources
     if [ ! -d "$SOURCE_DIR/neovim" ]; then
@@ -75,8 +83,12 @@ function export_data_and_preferences() {
 }
 
 function update_all() {
-    sudo apt update
-    sudo apt upgrade
+    if command -v pacman &> /dev/null; then
+        sudo pacman -Syu --noconfirm
+    elif command -v apt &> /dev/null; then
+        sudo apt update -y
+        sudo apt upgrade -y
+    fi
 }
 
 # Save config
@@ -88,10 +100,15 @@ function import_data() {
 
 function cat_readme() {
     echo ""
-    echo "Usage: ./test.sh <option>"
-    echo "options:"
-    echo "1 : install config"
-    echo "2 : save config"
+    echo "--------------------------------------------------------"
+    echo "               Dotfile Management Script                "
+    echo "--------------------------------------------------------"
+    echo " Usage: ./install.sh <option>"
+    echo " options:"
+    echo "   1 : Install configuration"
+    echo "   2 : Save configuration"
+    echo "   -h: Display this help message"
+    echo "--------------------------------------------------------"
 }
 
 /bin/clear
