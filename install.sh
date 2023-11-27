@@ -69,6 +69,7 @@ function export_data_and_preferences() {
     cp -r "$DOTFILE/conf/nvim" "$HOME/.config"
     cp "$DOTFILE/conf/zshrc" "$HOME/.zshrc"
     cp -r "$DOTFILE/conf/zshrc_conf" "$HOME/.zshrc_conf"
+    sudo chsh -s /bin/zsh
 }
 
 function update_all() {
