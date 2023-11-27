@@ -52,7 +52,9 @@ function install_sources() {
 
 function export_data_and_preferences() {
     # Export data
-    cp "$DOTFILE/conf/**" "$HOME/.config"
+    cp -r "$DOTFILE/conf/nvim" "$HOME/.config"
+    cp "$DOTFILE/conf/zshrc" "$HOME/.zshrc"
+    cp -r "$DOTFILE/conf/zshrc_conf" "$HOME/.config"
 
     # Scripts (symlinks)
     if [ ! -e "/usr/local/bin/auto_commit" ]; then
