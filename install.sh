@@ -52,7 +52,7 @@ function install_sources() {
 
 function export_data_and_preferences() {
     # Export data
-    cp "$DOTFILE/conf/*" "$HOME/.config"
+    cp "$DOTFILE/conf/**" "$HOME/.config"
 
     # Scripts (symlinks)
     if [ ! -e "/usr/local/bin/auto_commit" ]; then
