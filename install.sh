@@ -37,6 +37,9 @@ function install_sources() {
     # Github sources
     if [ ! -d "$HOME/$SOURCE_DIR/neovim" ]; then
         git clone git@github.com:neovim/neovim.git "$HOME/$SOURCE_DIR/neovim"
+        cd "$HOME/$SOURCE_DIR/neovim"
+        make CMAKE_BUILD_TYPE=RelWithDebInfo
+        sudo make install
     fi
 
     if [ ! -d "$HOME/$SOURCE_DIR/coding-style-checker" ]; then
@@ -63,9 +66,9 @@ function export_data_and_preferences() {
     exa /usr/local/bin
 
     # Preferences
-    cp -r "$DOTFILE/config/nvim" "$HOME/.config"
-    cp "$DOTFILE/dot/zshrc" "$HOME/.zshrc"
-    cp -r "$DOTFILE/dot/zshrc_conf" "$HOME/.zshrc_conf"
+    cp -r "$DOTFILE/conf/nvim" "$HOME/.config"
+    cp "$DOTFILE/conf/zshrc" "$HOME/.zshrc"
+    cp -r "$DOTFILE/conf/zshrc_conf" "$HOME/.zshrc_conf"
 }
 
 function update_all() {
@@ -75,15 +78,9 @@ function update_all() {
 
 # Save config
 function import_data() {
-    cp "$HOME/.config/nvim/init.vim" "$DOTFILE/config/nvim/"
-    cp "$HOME/.zshrc" "$DOTFILE/dot/zshrc"
-    cp -r "$HOME/.zshrc_conf/" "$DOTFILE/dot/zshrc_conf/"
-}
-
-function upload_updates() {
-    git add .
-    git commit -m "New config version"
-    git push origin main
+    cp "$HOME/.config/nvim/init.vim" "$DOTFILE/conf/nvim/"
+    cp "$HOME/.zshrc" "$DOTFILE/conf/zshrc"
+    cp -r "$HOME/.zshrc_conf/" "$DOTFILE/conf/zshrc_conf/"
 }
 
 function cat_readme() {
@@ -109,7 +106,6 @@ if [ $# == 1 ]; then
             exit 0
         elif [ $1 == "2" ]; then
             import_data
-            upload_updates
             echo "Saving done..."
             exit 0
         else
