@@ -32,7 +32,7 @@ function build_home() {
 
 function install_sources() {
     # APT sources
-    sudo apt install zsh git docker.io kitty exa
+    sudo apt install zsh git docker.io kitty exa bat
 
     # Github sources
     if [ ! -d "$HOME/$SOURCE_DIR/neovim" ]; then
