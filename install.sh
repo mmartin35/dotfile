@@ -1,98 +1,110 @@
-#! /bin/bash
-/bin/clear
+#!/bin/bash
 
-_install_nvim_fs() {
-    return
+# Save config
+function import_data() {
+    cp "$HOME/.config/nvim/init.vim" "$PWD/config/nvim/"
+    cp "$HOME/.zshrc" "$PWD/dot/zshrc"
+    cp -r "$HOME/.zshrc_conf/" "$PWD/dot/zshrc_conf/"
 }
 
-#           INSTALL         #
-
-_build_dirs() {
-    mkdir $HOME/Dev
-    return
+function upload_updates() {
+    git add .
+    git commit -m "New config version"
+    git push origin main
 }
 
-_setup_auths() {
-    # ssh key #
-    ssh-keygen -f %HOME/.ssh/git_key -N ""
-    return
+# Install config
+function build_home() {
+    if [ ! -d "$HOME/$CODE_DIR/epitech" ]; then
+        mkdir -p "$HOME/$CODE_DIR/epitech"
+    fi
+
+    if [ ! -d "$HOME/$CODE_DIR/tools" ]; then
+        mkdir -p "$HOME/$CODE_DIR/tools"
+    fi
+
+    if [ ! -d "$HOME/$SOURCE_DIR" ]; then
+        mkdir "$HOME/$SOURCE_DIR"
+    fi
 }
 
-_install_soft() {
-    sudo apt install zsh git docker.io kitty
-## zsh dependencies
-	sudo apt install exa
-##    _install_nvim_fs
-sudo apt install neovim
-    return
-}
+function install_sources() {
+    # APT sources
+    sudo apt install zsh git docker.io kitty exa
 
-_get_epitech_resources() {
+    # Github sources
+    if [ ! -d "$HOME/$SOURCE_DIR/neovim" ]; then
+        git clone git@github.com:neovim/neovim.git "$HOME/$SOURCE_DIR/neovim"
+    fi
+
+    if [ ! -d "$HOME/$SOURCE_DIR/coding-style-checker" ]; then
+        git clone git@github.com:epitech/coding-style-checker.git "$HOME/$SOURCE_DIR/coding-style-checker"
+    fi
+
+    # Docker images
     sudo docker pull epitechcontent/epitest-docker
-    return
 }
 
-_setup_preferencies() {
-    cp -r $PWD/config/nvim $HOME/.config
+function export_data_and_preferences() {
+    # Export data
+    cp "$PWD/conf/*" "$HOME/.config"
 
-    cp $PWD/dot/zshrc $HOME/.zshrc
-    cp -r $PWD/dot/zshrc_conf $HOME/.zshrc_conf
-    return
-}
+    # Scripts (symlinks)
+    if [ ! -e "/usr/local/bin/auto_commit" ]; then
+        sudo ln -s "$PWD/scripts/git/auto_commit.sh" "/usr/local/bin/auto_commit"
+    fi
 
-_build_sym_links() {
-    # scripts #
-    sudo ln -s $PWD/scripts/git/auto_commit.sh /usr/local/bin/auto_commit
-    sudo ln -s $PWD/scripts/headers/epitech_header.sh /usr/local/bin/header
-    sudo ln -s $PWD/scripts/tests/coding_style.sh /usr/local/bin/coding-style
+    if [ ! -e "/usr/local/bin/header" ]; then
+        sudo ln -s "$PWD/scripts/headers/epitech_header.sh" "/usr/local/bin/header"
+    fi
 
     exa /usr/local/bin
-    return
+
+    # Preferences
+    cp -r "$PWD/config/nvim" "$HOME/.config"
+    cp "$PWD/dot/zshrc" "$HOME/.zshrc"
+    cp -r "$PWD/dot/zshrc_conf" "$HOME/.zshrc_conf"
 }
 
-_update_all() {
+function update_all() {
     sudo apt update
     sudo apt upgrade
-    return
 }
 
-#           SAVE            #
-
-_save_config() {
-    cd $HOME/GIT/dotfile
-    cp $HOME/.config/nvim/init.vim $PWD/config/nvim/
-
-    cp $HOME/.zshrc $PWD/dot/zshrc
-    cp -r $HOME/.zshrc_conf/* $PWD/dot/zshrc_conf/
-    return
+function cat_readme() {
+    echo ""
+    echo "Usage: ./test.sh <option>"
+    echo "options:"
+    echo "1 : install config"
+    echo "2 : save config"
 }
 
-_push_changes() {
-    return
-}
-
-echo "Setup dotfile ? (y/save/a)"
-read status
-if [ -z $status ]; then
-    echo "aborted"
-    exit 84
-fi
-if [ $status == "y" ]; then
-    _build_dirs
-    _setup_auths
-    _install_soft
-    _get_epitech_resources
-    _setup_preferencies
-    _build_sym_links
-    _update_all
-    echo "Install done."
-    exit 0
-elif [ $status == "save" ]; then
-    _save_config
-    _push_changes
-    echo "Save done."
-    exit 0
+/bin/clear
+if [ $# == 1 ]; then
+    if [ $1 == "-h" ]; then
+        cat_readme
+    else
+        # Dir setup
+        SOURCE_DIR="$HOME/Sources" # Where downloaded sources are
+        CODE_DIR="$HOME/Code" # Where coding workspace is
+        if [ $1 == "1" ]; then
+            cd "$HOME/Dotfile"
+            update_all
+            build_home
+            install_sources
+            export_data_and_preferences
+            echo "Installation done..."
+            exit 0
+        elif [ $1 == "2" ]; then
+            cd "$HOME/Dotfile"
+            import_data
+            upload_updates
+            echo "Saving done..."
+            exit 0
+        else
+            cat_readme
+        fi
+    fi
 else
-    echo "aborted"
-    exit 84
+    cat_readme
 fi
