@@ -48,8 +48,8 @@ function install_sources() {
         cd "$SOURCE_DIR/neovim"
         make CMAKE_BUILD_TYPE=RelWithDebInfo
         sudo make install
-        sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+        sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+        nvim +PlugInstall
     fi
 
     if [ ! -d "$SOURCE_DIR/coding-style-checker" ]; then
