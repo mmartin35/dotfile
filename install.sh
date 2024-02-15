@@ -33,10 +33,10 @@ function build_home() {
 function install_sources() {
     # Arch Linux package manager check
     if command -v pacman &> /dev/null; then
-        sudo pacman -Syu --noconfirm zsh git docker kitty exa bat make valgrind cmake gettext
+        sudo pacman -Syu --noconfirm zsh git docker docker.io kitty exa bat make valgrind cmake gettext crul
     elif command -v apt &> /dev/null; then
         # APT sources
-        sudo apt install -y zsh git docker.io kitty exa bat make valgrind cmake gettext
+        sudo apt install -y zsh git docker.io kitty exa bat make valgrind cmake gettext curl
     else
         echo "Unsupported package manager. Please install the required packages manually."
         exit 1
@@ -48,7 +48,7 @@ function install_sources() {
         cd "$SOURCE_DIR/neovim"
         make CMAKE_BUILD_TYPE=RelWithDebInfo
         sudo make install
-        sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+        curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
         nvim +PlugInstall +qall
     fi
 
