@@ -1,30 +1,26 @@
 #!/bin/bash
 
-function create_environment_variables() {
+create_environment_variables() {
     # Check and create environment variables
     if [ -z "$DOTFILE" ]; then
         export DOTFILE="$HOME/Dotfile" # Where Dotfile is
     fi
-
     if [ -z "$SOURCE_DIR" ]; then
         export SOURCE_DIR="$HOME/Sources" # Where downloaded sources are
     fi
-
     if [ -z "$CODE_DIR" ]; then
         export CODE_DIR="$HOME/Code" # Where coding workspace is
     fi
 }
 
 # Install config
-function build_home() {
+build_home() {
     if [ ! -d "$CODE_DIR/epitech" ]; then
         mkdir -p "$CODE_DIR/epitech"
     fi
-
     if [ ! -d "$CODE_DIR/tools" ]; then
         mkdir -p "$CODE_DIR/tools"
     fi
-
     if [ ! -d "$SOURCE_DIR" ]; then
         mkdir "$SOURCE_DIR"
     fi
@@ -60,7 +56,7 @@ function install_sources() {
     sudo docker pull epitechcontent/epitest-docker
 }
 
-function export_data_and_preferences() {
+export_data_and_preferences() {
     # Export data
     cp -r "$DOTFILE/conf/nvim" "$HOME/.config"
     cp "$DOTFILE/conf/zshrc" "$HOME/.zshrc"
@@ -80,11 +76,11 @@ function export_data_and_preferences() {
     # Preferences
     cp -r "$DOTFILE/conf/nvim" "$HOME/.config"
     cp "$DOTFILE/conf/zshrc" "$HOME/.zshrc"
-    cp -r "$DOTFILE/conf/zshrc_conf" "$HOME/.zshrc_conf"
+    cp -r "$DOTFILE/conf/.zshrc_conf" "$HOME/.zshrc_conf"
     sudo chsh -s /bin/zsh
 }
 
-function update_all() {
+update_all() {
     if command -v pacman &> /dev/null; then
         sudo pacman -Syu --noconfirm
     elif command -v apt &> /dev/null; then
@@ -94,13 +90,13 @@ function update_all() {
 }
 
 # Save config
-function import_data() {
+import_data() {
     cp "$HOME/.config/nvim/init.vim" "$DOTFILE/conf/nvim/"
     cp "$HOME/.zshrc" "$DOTFILE/conf/zshrc"
-    cp -r "$HOME/.zshrc_conf/" "$DOTFILE/conf/zshrc_conf/"
+    cp -r "$HOME/.zshrc_conf/" "$DOTFILE/conf/"
 }
 
-function cat_readme() {
+cat_readme() {
     echo ""
     echo "--------------------------------------------------------"
     echo "               Dotfile Management Script                "
@@ -113,12 +109,11 @@ function cat_readme() {
     echo "--------------------------------------------------------"
 }
 
-/bin/clear
-if [ $# == 1 ]; then
-    if [ $1 == "-h" ]; then
+if [ $# -eq 1 ]; then
+    if [ "$1" = "-h" ]; then
         cat_readme
     else
-        if [ $1 == "1" ]; then
+        if [ "$1" = "1" ]; then
             create_environment_variables
             update_all
             build_home
@@ -126,14 +121,17 @@ if [ $# == 1 ]; then
             export_data_and_preferences
             echo "Installation done..."
             exit 0
-        elif [ $1 == "2" ]; then
+        elif [ "$1" = "2" ]; then
+            create_environment_variables
             import_data
             echo "Saving done..."
             exit 0
         else
             cat_readme
+            exit 84
         fi
     fi
 else
     cat_readme
+    exit 84
 fi

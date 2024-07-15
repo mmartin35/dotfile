@@ -3,20 +3,24 @@ set tabstop=4
 set shiftwidth=4
 set mouse=a
 
-noremap t :tree
+au VimEnter *  NERDTreeToggle
+
+nnoremap <C-1> <C-w>h
+nnoremap <C-2> <C-w>l
+noremap <C-t> :NERDTreeToggle<CR>
+noremap <C-c> :Copilot<CR>
+noremap <C-s> :vsplit<CR>
 noremap <PageUp> :
 noremap <PageDown> :
-
-cnoreabbrev tree NERDTree
 
 call plug#begin('~/.config/nvim/plugged')
  Plug 'rebelot/kanagawa.nvim'
  Plug 'nvim-lualine/lualine.nvim'
-" If you want to have icons in your statusline choose one of these
  Plug 'nvim-tree/nvim-web-devicons'
  Plug 'scrooloose/nerdtree'
  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
  Plug 'windwp/nvim-autopairs'
+ Plug 'github/copilot.vim'
 call plug#end()
 
 colorscheme kanagawa
