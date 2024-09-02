@@ -103,8 +103,9 @@ cat_readme() {
     echo "--------------------------------------------------------"
     echo " Usage: ./install.sh <option>"
     echo " options:"
-    echo "   1 : Install configuration"
-    echo "   2 : Save configuration"
+    echo "   1 : Install gui configuration"
+    echo "   2 : Install server configuration"
+    echo "   3 : Save configuration"
     echo "   -h: Display this help message"
     echo "--------------------------------------------------------"
 }
@@ -119,12 +120,15 @@ if [ $# -eq 1 ]; then
             build_home
             install_sources
             export_data_and_preferences
-            echo "Installation done..."
+            echo "GUI install done"
             exit 0
         elif [ "$1" = "2" ]; then
+            echo "Server install done"
+            exit 0
+        elif [ "$1" = "3" ]; then
             create_environment_variables
             import_data
-            echo "Saving done..."
+            echo "Cfg saved in $DOTFILE"
             exit 0
         else
             cat_readme
